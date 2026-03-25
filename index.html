@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCP Access</title>
+<style>
+  body {
+    margin: 0;
+    background: black;
+    color: #00ff9c;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .terminal { width: 600px; }
+  .line { opacity: 0; animation: fadeIn 0.5s forwards; }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .cursor::after { content: "_"; animation: blink 1s infinite; }
+  @keyframes blink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0;} }
+</style>
+</head>
+<body>
+<div class="terminal" id="terminal"></div>
+<script>
+function generarPassword() {
+  const length = Math.floor(Math.random() * 9) + 8;
+  return "*".repeat(length);
+}
+
+const password = generarPassword();
+const lines = [
+  "Inicializando protocolo de acceso...",
+  "Conectando a nodos seguros...",
+  "Accediendo a los servidores de la Fundacion SCP...",
+  "Usuario: ***********",
+  "Contraseña: " + password,
+  "Verificando credenciales...",
+  "Nivel de acceso: [PENDIENTE]",
+  "Cargando archivos...",
+  "Acceso parcial concedido"
+];
+
+const terminal = document.getElementById("terminal");
+
+lines.forEach((text, index) => {
+  setTimeout(() => {
+    const div = document.createElement("div");
+    div.className = "line";
+    div.textContent = text;
+    if(index === lines.length - 1) div.classList.add("cursor");
+    terminal.appendChild(div);
+  }, index * 800);
+});
+
+const totalTime = lines.length * 800;
+
+// 🔴 Ahora en vez de mostrar archivos, redirige
+setTimeout(() => {
+  setTimeout(() => {
+    window.location.href = "archivador.html";
+  }, 1000);
+}, totalTime);
+</script>
+</body>
+</html>

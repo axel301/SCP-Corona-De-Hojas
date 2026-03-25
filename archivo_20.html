@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X Clone UI</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Arial;
+      background: #000;
+      color: #e7e9ea;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container { display: flex; width: 1200px; }
+
+    .sidebar { width: 260px; padding: 15px; }
+
+    .feed { width: 600px; border-left: 1px solid #222; border-right: 1px solid #222; }
+
+    .top-bar {
+      position: sticky; top: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-bottom: 1px solid #222;
+    }
+
+    .tweet {
+      padding: 15px;
+      border-bottom: 1px solid #222;
+      display: flex;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #09f, #f0f);
+    }
+
+    .tweet-content { flex: 1; }
+    .tweet-header { font-weight: bold; }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #71767b;
+    }
+
+    .right { width: 340px; padding: 15px; }
+    .card {
+      background: #111;
+      padding: 15px;
+      border-radius: 15px;
+    }
+
+    #volver {
+      margin-top: 20px;
+      text-align: center;
+      cursor: pointer;
+      color: #00ff9c;
+      font-family: monospace;
+    }
+
+    #volver:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="sidebar">
+    <h2>X</h2>
+    <img src="https://e.snmc.io/lk/o/x/a21698be6e2392b7d5d96a154f4dd7db/10350354" alt="SCP Logo" style="width:80px; margin-top:20px; filter: invert(1);">
+  </div>
+
+  <div class="feed">
+
+    <div class="top-bar"></div>
+
+    <div class="tweet">
+      <div class="avatar"></div>
+      <div class="tweet-content">
+        <div class="tweet-header">REDACTADO (1)</div>
+        <div>Vi hombres reunidos en el bosque cerca de Virolahti, Finlandia. Estaban en círculo, como en un ritual.</div>
+        <div class="actions"><span>💬 1</span><span>🔁 0</span><span>❤️ 2</span><span>👁️ 3</span></div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <div class="avatar"></div>
+      <div class="tweet-content">
+        <div class="tweet-header">REDACTADO (2)</div>
+        <div>Hay gente desapareciendo en la zona. Nadie dice nada, pero ya son varios.</div>
+        <div class="actions"><span>💬 1</span><span>🔁 0</span><span>❤️ 1</span><span>👁️ 2</span></div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <div class="avatar"></div>
+      <div class="tweet-content">
+        <div class="tweet-header">REDACTADO (3)</div>
+        <div>Los vi de lejos: llevaban camuflaje hecho de hojas… y cabezas de ciervo.</div>
+        <div class="actions"><span>💬 2</span><span>🔁 0</span><span>❤️ 2</span><span>👁️ 4</span></div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <div class="avatar"></div>
+      <div class="tweet-content">
+        <div class="tweet-header">REDACTADO (4)</div>
+        <div>Escuché gritos anoche en el bosque. No parecían animales.</div>
+        <div class="actions"><span>💬 1</span><span>🔁 0</span><span>❤️ 1</span><span>👁️ 2</span></div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <div class="avatar"></div>
+      <div class="tweet-content">
+        <div class="tweet-header">REDACTADO (5)</div>
+        <div>Dicen que alguien volvió del bosque… pero no habla y no reconoce a nadie.</div>
+        <div class="actions"><span>💬 1</span><span>🔁 0</span><span>❤️ 1</span><span>👁️ 1</span></div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <div class="avatar"></div>
+      <div class="tweet-content">
+        <div class="tweet-header">REDACTADO (6)</div>
+        <div>Un hombre atacó a otro en la calle. Decía que "ellos" ya lo habían visto.</div>
+        <div class="actions"><span>💬 2</span><span>🔁 0</span><span>❤️ 2</span><span>👁️ 3</span></div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <div class="avatar"></div>
+      <div class="tweet-content">
+        <div class="tweet-header">REDACTADO (7)</div>
+        <div>Hay símbolos tallados en los árboles ahora. No estaban antes.</div>
+        <div class="actions"><span>💬 1</span><span>🔁 0</span><span>❤️ 1</span><span>👁️ 2</span></div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <div class="avatar"></div>
+      <div class="tweet-content">
+        <div class="tweet-header">REDACTADO (8)</div>
+        <div>Algo se mueve entre los árboles, pero cuando mirás directo… no hay nada.</div>
+        <div class="actions"><span>💬 2</span><span>🔁 0</span><span>❤️ 2</span><span>👁️ 4</span></div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <div class="avatar"></div>
+      <div class="tweet-content">
+        <div class="tweet-header">REDACTADO (9)</div>
+        <div>No vuelvan al bosque de noche. No están solos ahí.</div>
+        <div class="actions"><span>💬 1</span><span>🔁 0</span><span>❤️ 1</span><span>👁️ 2</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="right">
+    <div class="card">
+      <b>ARCHIVO 20 — ACCESO RESTRINGIDO</b>
+      <p><b>Ítem:</b> SCP-1513</p>
+      <p><b>Nombre en clave:</b> "Corona de Hojas"</p>
+      <p><b>Clasificación:</b> Pendiente de asignación</p>
+      <p><b>Estado:</b> Registro parcial recuperado de comunicaciones externas.</p>
+      <p><b>Nota:</b> Fragmentos civiles archivados. Identidades redactadas.</p>
+
+      <div id="volver">← Volver</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById("volver").onclick = function() {
+    window.location.href = "archivador.html";
+  };
+</script>
+
+</body>
+</html>

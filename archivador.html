@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archivador SCP</title>
+<style>
+  body {
+    margin: 0;
+    background: black;
+    color: #00ff9c;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .terminal { width: 600px; text-align: left; }
+  .line { margin: 5px 0; }
+</style>
+</head>
+<body>
+<div class="terminal" id="terminal"></div>
+
+<script>
+function reproducirVideo(src) {
+  const terminal = document.getElementById("terminal");
+  terminal.innerHTML = "";
+
+  const iframe = document.createElement("iframe");
+  iframe.src = src;
+  iframe.width = "100%";
+  iframe.height = "315";
+  iframe.style.display = "block";
+  iframe.style.margin = "0 auto";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
+
+  const back = document.createElement("div");
+  back.textContent = "← Volver";
+  back.style.cursor = "pointer";
+  back.style.marginTop = "20px";
+  back.style.textAlign = "center";
+  back.onclick = () => window.location.href = "archivador.html";
+
+  terminal.appendChild(iframe);
+  terminal.appendChild(back);
+}
+
+const terminal = document.getElementById("terminal");
+
+const img = document.createElement("img");
+img.src = "scp.png";
+img.style.display = "block";
+img.style.margin = "0 auto 20px auto";
+img.style.maxWidth = "300px";
+terminal.appendChild(img);
+
+const destacados = [6,9,13,20,23];
+
+for(let i=1;i<=23;i++){
+  const file = document.createElement("div");
+  file.className = "line";
+  file.style.cursor = "pointer";
+
+  file.textContent = (i===20)
+    ? "Archivo_20"
+    : "Archivo_" + i.toString().padStart(2,'0');
+
+  if(destacados.includes(i)){
+    file.style.textDecoration = "underline";
+    file.style.fontSize = "18px";
+  }
+
+  file.addEventListener("click", ()=>{
+    const msg = document.createElement("div");
+    msg.className = "line";
+    msg.style.marginTop = "10px";
+
+    if(destacados.includes(i)){
+      msg.textContent = "Accediendo al archivo...";
+      msg.style.color = "#00ff9c";
+
+      if(i===20){
+        /* NOTA DE DESARROLLADOR: redirección a archivo_20.html */
+        setTimeout(()=>{ window.location.href="archivo_20.html"; },800);
+      }
+      if(i===6){
+        /* NOTA DE DESARROLLADOR: reproducción archivo_6.mov */
+        setTimeout(()=>{ reproducirVideo("https://www.youtube.com/embed/ifWPQ1l_bIs"); },800);
+      }
+      if(i===9){
+        /* NOTA DE DESARROLLADOR: reproducción archivo_9.mov */
+        setTimeout(()=>{ reproducirVideo("https://www.youtube.com/embed/aIwcUBfDcUE"); },800);
+      }
+      if(i===13){
+        /* NOTA DE DESARROLLADOR: reproducción archivo_13.mov */
+        setTimeout(()=>{ reproducirVideo("https://www.youtube.com/embed/5YuHm4AeMYg"); },800);
+      }
+      if(i===23){
+        /* NOTA DE DESARROLLADOR: reproducción archivo_23.mp4 */
+        setTimeout(()=>{ reproducirVideo("https://www.youtube.com/embed/mKzrXQy0FuI"); },800);
+      }
+
+    } else {
+      msg.textContent = "[ACCESO DENEGADO] Nivel de autorización insuficiente.";
+      msg.style.color = "#ff3b3b";
+    }
+
+    terminal.appendChild(msg);
+    setTimeout(()=>{ msg.remove(); },1000);
+  });
+
+  terminal.appendChild(file);
+}
+</script>
+</body>
+</html>
